@@ -17,7 +17,7 @@ while true; do
 		fi
 
 		#sample coloring rule (rule2)
-		#rule2=$(tshark -r $i -Y "")
+		#rule2=$(tshark -r $i -Y '')
 		#if [ -z "$rule2" ] ;then
 		#	echo "0" > r2
 		#else
