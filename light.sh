@@ -57,7 +57,7 @@ while [ 1 ]
 do
 rule1=$(<r1)
 
-if [ $rule1 == $ON ]; then
+if [ $rule1 = $ON ]; then
 	setLightState $GREEN $ON
 	sleep 9
 	setLightState $GREEN $OFF
