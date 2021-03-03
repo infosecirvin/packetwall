@@ -1,5 +1,13 @@
 #!/bin/bash
+#functions
+shutdown()
+{
+  sudo killall tshark
+  exit 0
+}
+trap shutdown SIGINT
 
+touch r1
 #start tshark capture
 nohup sudo tshark -i eth1 -b duration:10 -b files:2 -w wall.pcapng &
 
@@ -16,13 +24,13 @@ while true; do
 			tshark -r $i -Y 'http || tcp.port==80 || http2' -w http.pcapng
 		fi
 
-		#sample rule (rule2)
-		#rule2=$(tshark -r $i -Y '')
+		#sample coloring rule (rule2)
+		#rule2=$(tshark -r $i -Y "")
 		#if [ -z "$rule2" ] ;then
 		#	echo "0" > r2
 		#else
 		#	echo "1" > r2
-		#	tshark -r $i -Y '' -w rule2.pcapng
+		#	tshark -r $i -Y '' -w http.pcapng
 		#fi
 	done
 	sleep 10s
